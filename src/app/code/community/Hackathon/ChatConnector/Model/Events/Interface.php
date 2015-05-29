@@ -14,6 +14,7 @@
  * @copyright      Copyright (c) 2015
  * @license        http://opensource.org/licenses/mit-license.php MIT License
  */
+
 /**
  * Event interface
  *
@@ -24,9 +25,9 @@
 Interface Hackathon_ChatConnector_Model_Events_Interface
 {
     /**
-     * @param Varien_Event_Observer $event
+     * Listener for the specified observer
      *
-     * @return mixed
+     * @param Varien_Event_Observer $observer Observer
      */
-    public function listener(Varien_Event_Observer $event);
+    public function listener(Varien_Event_Observer $observer);
 }

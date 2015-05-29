@@ -22,7 +22,8 @@
  * @package     Hackathon_ChatConnector
  * @author      Sander Mangel <sander@sandermangel.nl>
  */
-class Hackathon_ChatConnector_Model_Events_Abstract extends Mage_Core_Model_Abstract
+abstract class Hackathon_ChatConnector_Model_Events_Abstract
+    implements Hackathon_ChatConnector_Model_Events_Interface
 {
     /**
      * @var Hackathon_ChatConnector_Helper_Data
@@ -30,12 +31,10 @@ class Hackathon_ChatConnector_Model_Events_Abstract extends Mage_Core_Model_Abst
     protected $_helper = null;
 
     /**
-     * processQueue
+     * Add the item to the queue
      *
-     * @access protected
-     * @param string $params
-     * @param array $params
-     * @return Void
+     * @param string $message
+     * @param array  $params
      */
     protected function _addQueueItem($message, $params = array())
     {

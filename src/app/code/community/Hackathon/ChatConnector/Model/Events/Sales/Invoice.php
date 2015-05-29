@@ -14,6 +14,7 @@
  * @copyright      Copyright (c) 2015
  * @license        http://opensource.org/licenses/mit-license.php MIT License
  */
+
 /**
  * Invoice event cron
  *
@@ -25,13 +26,11 @@ class Hackathon_ChatConnector_Model_Events_Sales_Invoice
     extends Hackathon_ChatConnector_Model_Events_Abstract
 {
     /**
-     * listener
+     * Listen to invoice creation
      *
-     * @access public
-     * @param Varien_Event_Observer $observer
-     * @return Void
+     * @param Varien_Event_Observer $observer Observer
      */
-    public function listener($observer)
+    public function listener(Varien_Event_Observer $observer)
     {
         $order = $observer->getEvent()->getOrder();
         $shippingObj = $order->getShippingAddress();
