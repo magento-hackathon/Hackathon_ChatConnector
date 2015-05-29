@@ -21,7 +21,7 @@
  * @package     Hackathon_ChatConnector
  * @author      Marcel Hauri <marcel@hauri.me>
  */
-class Hackathon_ChatConnector_Model_System_Config_Source_Dropdown_Values
+class Hackathon_ChatConnector_Model_System_Config_Source_Dropdown_Connectors
 {
     /**
      * @return array
