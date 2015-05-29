@@ -19,7 +19,24 @@
         <models>
             <hackathon_chatconnector>
                 <class>Hackathon_ChatConnector_Model</class>
+                <resourceModel>hackathon_chatconnector_resource</resourceModel>
             </hackathon_chatconnector>
+            <hackathon_chatconnector_resource>
+                <class>Hackathon_ChatConnector_Model_Resource</class>
+                <entities>
+                    <queue>
+                        <table>hackathon_chatconnector_queue</table>
+                    </queue>
+                </entities>
+            </hackathon_chatconnector_resource>
         </models>
+        <resources>
+            <hackathon_chatconnector_setup>
+                <setup>
+                    <module>Hackathon_ChatConnector</module>
+                    <class>Hackathon_ChatConnector_Model_Resource_Setup</class>
+                </setup>
+            </hackathon_chatconnector_setup>
+        </resources>
     </global>
 </config>
