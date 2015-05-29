@@ -27,7 +27,7 @@ class Hackathon_ChatConnector_Model_Events_Abstract extends Mage_Core_Model_Abst
      * processQueue
      *
      * @access protected
-     * @parm array $params
+     * @param array $params
      * @return Void
      */
     protected function _addQueueItem($params)
