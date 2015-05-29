@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Hackathon_ChatConnector extension
+ * Hackathon_ChatConnector extension.
  *
  * NOTICE OF LICENSE
  *
@@ -10,22 +11,22 @@
  * http://opensource.org/licenses/mit-license.php
  *
  * @category       Hackathon
- * @package        Hackathon_ChatConnector
+ *
  * @copyright      Copyright (c) 2015
  * @license        http://opensource.org/licenses/mit-license.php MIT License
  */
 
 /**
- * Queue resource model
+ * Queue resource model.
  *
  * @category    Hackathon
- * @package     Hackathon_ChatConnector
+ *
  * @author      Sander Mangel <sander@sandermangel.nl>
  */
 class Hackathon_ChatConnector_Model_Resource_Queue extends Mage_Core_Model_Resource_Db_Abstract
 {
     /**
-     * Init the main table and primary key field
+     * Init the main table and primary key field.
      */
     public function _construct()
     {
@@ -33,9 +34,10 @@ class Hackathon_ChatConnector_Model_Resource_Queue extends Mage_Core_Model_Resou
     }
 
     /**
-     * _beforeSave
+     * _beforeSave.
      *
      * @param Mage_Core_Model_Abstract $object
+     *
      * @return Mage_Core_Model_Resource_Db_Abstract
      */
     protected function _beforeSave(Mage_Core_Model_Abstract $object)
@@ -54,7 +56,7 @@ class Hackathon_ChatConnector_Model_Resource_Queue extends Mage_Core_Model_Resou
     }
 
     /**
-     * Update the given queue items with the given status
+     * Update the given queue items with the given status.
      *
      * @param array $entityIds Entity IDs
      * @param int   $status    Status
@@ -67,17 +69,17 @@ class Hackathon_ChatConnector_Model_Resource_Queue extends Mage_Core_Model_Resou
 
         $adapter = $this->_getWriteAdapter();
         $bind = array(
-            'status'     => $status,
+            'status' => $status,
             'updated_at' => Mage::getModel('core/date')->gmtDate(),
         );
         $where = array(
-            'entity_id IN(?)' => $entityIds
+            'entity_id IN(?)' => $entityIds,
         );
         $adapter->update($this->getMainTable(), $bind, $where);
     }
 
     /**
-     * Update all non-processed rma entries to processed
+     * Update all non-processed rma entries to processed.
      */
     public function cleanupProcessedEntries()
     {

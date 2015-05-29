@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Hackathon_ChatConnector extension
+ * Hackathon_ChatConnector extension.
  *
  * NOTICE OF LICENSE
  *
@@ -10,22 +11,22 @@
  * http://opensource.org/licenses/mit-license.php
  *
  * @category       Hackathon
- * @package        Hackathon_ChatConnector
+ *
  * @copyright      Copyright (c) 2015
  * @license        http://opensource.org/licenses/mit-license.php MIT License
  */
 
 /**
- * Event interface
+ * Event interface.
  *
  * @category    Hackathon
- * @package     Hackathon_ChatConnector
+ *
  * @author      Sander Mangel <sander@sandermangel.nl>
  */
-Interface Hackathon_ChatConnector_Model_Events_Interface
+interface Hackathon_ChatConnector_Model_Events_Interface
 {
     /**
-     * Listener for the specified observer
+     * Listener for the specified observer.
      *
      * @param Varien_Event_Observer $observer Observer
      */

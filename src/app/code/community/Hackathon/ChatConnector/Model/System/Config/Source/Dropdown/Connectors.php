@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Hackathon_ChatConnector extension
+ * Hackathon_ChatConnector extension.
  *
  * NOTICE OF LICENSE
  *
@@ -10,22 +11,22 @@
  * http://opensource.org/licenses/mit-license.php
  *
  * @category       Hackathon
- * @package        Hackathon_ChatConnector
+ *
  * @copyright      Copyright (c) 2015
  * @license        http://opensource.org/licenses/mit-license.php MIT License
  */
 
 /**
- * System Config Dropdown Values
+ * System Config Dropdown Values.
  *
  * @category    Hackathon
- * @package     Hackathon_ChatConnector
+ *
  * @author      Marcel Hauri <marcel@hauri.me>
  */
 class Hackathon_ChatConnector_Model_System_Config_Source_Dropdown_Connectors
 {
     /**
-     * Retrieve the configured connectors
+     * Retrieve the configured connectors.
      *
      * @return array
      */

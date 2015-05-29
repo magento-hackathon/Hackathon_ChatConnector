@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class Hackathon_ChatConnector_Helper_Data
+ * Class Hackathon_ChatConnector_Helper_Data.
  */
 class Hackathon_ChatConnector_Helper_Data extends Mage_Core_Helper_Abstract
 {
@@ -10,9 +10,10 @@ class Hackathon_ChatConnector_Helper_Data extends Mage_Core_Helper_Abstract
     const XML_PATH_GENERAL_FREQUENCY = 'hackathon_chatconnector/general/retry_frequency';
 
     /**
-     * Check if chat connector is active
+     * Check if chat connector is active.
      *
      * @param null $store
+     *
      * @return bool
      */
     public function isActive($store = null)
@@ -21,9 +22,10 @@ class Hackathon_ChatConnector_Helper_Data extends Mage_Core_Helper_Abstract
     }
 
     /**
-     * Retrieve all active chat connectors
+     * Retrieve all active chat connectors.
      *
      * @param null $store
+     *
      * @return array|mixed
      */
     public function getActiveConnectors($store = null)
@@ -35,29 +37,31 @@ class Hackathon_ChatConnector_Helper_Data extends Mage_Core_Helper_Abstract
     }
 
     /**
-     * Get retry frequency
+     * Get retry frequency.
      *
      * @param null $store
+     *
      * @return int
      */
     public function getRetryFrequency($store = null)
     {
-        return (int)Mage::getStoreConfig(self::XML_PATH_GENERAL_FREQUENCY, $store);
+        return (int) Mage::getStoreConfig(self::XML_PATH_GENERAL_FREQUENCY, $store);
     }
 
     /**
-     * Retrieve all configured connectors
+     * Retrieve all configured connectors.
      *
      * @param null $key
+     *
      * @return array
      */
     public function getConfiguredConnectors($key = null)
     {
         if (!is_null($key)) {
-            $key = '/' . trim($key, '/');
+            $key = '/'.trim($key, '/');
         }
 
-        $connectors = Mage::getConfig()->getNode('chatconnector/connectors' . $key);
+        $connectors = Mage::getConfig()->getNode('chatconnector/connectors'.$key);
 
         return $connectors->asArray();
     }

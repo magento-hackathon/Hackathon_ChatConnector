@@ -1,13 +1,13 @@
 <?php
 
 /**
- * Class Hackathon_ChatConnector_Model_Cron
+ * Class Hackathon_ChatConnector_Model_Cron.
  */
 class Hackathon_ChatConnector_Model_Cron_Process
     extends Hackathon_ChatConnector_Model_Cron_Abstract
 {
     /**
-     * Run the cron
+     * Run the cron.
      */
     public function run()
     {
@@ -24,7 +24,7 @@ class Hackathon_ChatConnector_Model_Cron_Process
     }
 
     /**
-     * Process the queue for the given connector
+     * Process the queue for the given connector.
      *
      * @param Hackathon_ChatConnector_Model_Connectors_Interface $connector Connector
      */
@@ -35,11 +35,11 @@ class Hackathon_ChatConnector_Model_Cron_Process
         /* @var $collection Hackathon_ChatConnector_Model_Resource_Queue_Collection */
         $collection = Mage::getResourceModel('hackathon_chatconnector/queue_collection');
         $collection->addConnectorFilter($connector->getCode());
-        $collection->getSelect()->where("
-            `status` = " . Hackathon_ChatConnector_Model_Queue::STATUS_PENDING . "
+        $collection->getSelect()->where('
+            `status` = '.Hackathon_ChatConnector_Model_Queue::STATUS_PENDING.'
             OR (
-                `status` = " . Hackathon_ChatConnector_Model_Queue::STATUS_FAILED . "
-                AND `updated_at` <= '" . Mage::getModel('core/date')->date(null, time() - $retryFreq) . "'
+                `status` = '.Hackathon_ChatConnector_Model_Queue::STATUS_FAILED."
+                AND `updated_at` <= '".Mage::getModel('core/date')->date(null, time() - $retryFreq)."'
         )");
 
         // Check if there are messsages to process
