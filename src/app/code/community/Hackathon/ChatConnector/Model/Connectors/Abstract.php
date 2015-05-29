@@ -26,6 +26,17 @@ class Hackathon_ChatConnector_Model_Connectors_Abstract extends Mage_Core_Model_
     protected $_prefix = '';
 
     /**
+     * getPrefix
+     *
+     * @access public
+     * @return string
+     */
+    public function getPrefix()
+    {
+        return $this->_prefix;
+    }
+
+    /**
      * processQueue
      *
      * @access protected
