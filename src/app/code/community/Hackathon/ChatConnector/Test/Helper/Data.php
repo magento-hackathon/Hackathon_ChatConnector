@@ -1,16 +1,16 @@
 <?php
 
 /**
- * Class Hackathon_ChatConnector_Test_Model_Config
+ * Class Hackathon_ChatConnector_Test_Helper_Data
  *
  * @group Hackathon_ChatConnector
  */
-class Hackathon_ChatConnector_Test_Model_Config extends EcomDev_PHPUnit_Test_Case
+class Hackathon_ChatConnector_Test_Helper_Data extends EcomDev_PHPUnit_Test_Case
 {
     /**
-     * @var Hackathon_ChatConnector_Model_Config
+     * @var Hackathon_ChatConnector_Helper_Data
      */
-    protected $_model;
+    protected $_helper;
 
     /**
      * Set up test class
@@ -18,7 +18,7 @@ class Hackathon_ChatConnector_Test_Model_Config extends EcomDev_PHPUnit_Test_Cas
     protected function setUp()
     {
         parent::setUp();
-        $this->_model = Mage::getModel('hackathon_chatconnector/config');
+        $this->_helper = Mage::helper('hackathon_chatconnector');
     }
 
     /**
@@ -27,7 +27,7 @@ class Hackathon_ChatConnector_Test_Model_Config extends EcomDev_PHPUnit_Test_Cas
      */
     public function testIsActive()
     {
-        $this->assertTrue($this->_model->isActive());
+        $this->assertTrue($this->_helper->isActive());
     }
 
     /**
@@ -36,7 +36,7 @@ class Hackathon_ChatConnector_Test_Model_Config extends EcomDev_PHPUnit_Test_Cas
      */
     public function testIsNotActive()
     {
-        $this->assertFalse($this->_model->isActive());
+        $this->assertFalse($this->_helper->isActive());
     }
 
     /**
@@ -48,7 +48,16 @@ class Hackathon_ChatConnector_Test_Model_Config extends EcomDev_PHPUnit_Test_Cas
     {
         $this->assertEquals(
             $this->expected('connectors')->getResult(),
-            $this->_model->getConnectors()
+            $this->_helper->getConnectors()
         );
+    }
+
+    /**
+     * @test
+     * @loadFixture
+     */
+    public function getRetryFrequency()
+    {
+        $this->assertEquals(7200, $this->_helper->getRetryFrequency());
     }
 }
