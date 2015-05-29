@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Hackathon_ChatConnector extension
+ * Hackathon_ChatConnector extension.
  *
  * NOTICE OF LICENSE
  *
@@ -10,16 +11,16 @@
  * http://opensource.org/licenses/mit-license.php
  *
  * @category       Hackathon
- * @package        Hackathon_ChatConnector
+ *
  * @copyright      Copyright (c) 2015
  * @license        http://opensource.org/licenses/mit-license.php MIT License
  */
 
 /**
- * Queue model
+ * Queue model.
  *
  * @category    Hackathon
- * @package     Hackathon_ChatConnector
+ *
  * @author      Sander Mangel <sander@sandermangel.nl>
  */
 class Hackathon_ChatConnector_Model_Queue extends Mage_Core_Model_Abstract
@@ -29,7 +30,7 @@ class Hackathon_ChatConnector_Model_Queue extends Mage_Core_Model_Abstract
     const STATUS_FAILED = 3;
 
     /**
-     * Init the resource model
+     * Init the resource model.
      */
     public function _construct()
     {

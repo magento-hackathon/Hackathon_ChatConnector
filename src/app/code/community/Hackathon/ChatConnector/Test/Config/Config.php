@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class Hackathon_ChatConnector_Test_Config_Config
+ * Class Hackathon_ChatConnector_Test_Config_Config.
  *
  * @group Hackathon_ChatConnector
  */

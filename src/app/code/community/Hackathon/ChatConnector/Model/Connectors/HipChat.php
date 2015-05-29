@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Hackathon_ChatConnector extension
+ * Hackathon_ChatConnector extension.
  *
  * NOTICE OF LICENSE
  *
@@ -10,16 +11,16 @@
  * http://opensource.org/licenses/mit-license.php
  *
  * @category       Hackathon
- * @package        Hackathon_ChatConnector
+ *
  * @copyright      Copyright (c) 2015
  * @license        http://opensource.org/licenses/mit-license.php MIT License
  */
 
 /**
- * HipChat Connector
+ * HipChat Connector.
  *
  * @category    Hackathon
- * @package     Hackathon_ChatConnector
+ *
  * @author      Marcel Hauri <marcel@hauri.me>
  */
 class Hackathon_ChatConnector_Model_Connectors_HipChat
@@ -28,10 +29,12 @@ class Hackathon_ChatConnector_Model_Connectors_HipChat
     const CODE = 'hipchat';
 
     /**
-     * Send the notification for the given connector
+     * Send the notification for the given connector.
      *
-     * @param array $params
+     * @param array $params Params
+     *
      * @return bool
+     *
      * @see https://www.hipchat.com/docs/apiv2/method/send_room_notification
      */
     public function notify($params = array())
@@ -64,21 +67,22 @@ class Hackathon_ChatConnector_Model_Connectors_HipChat
     }
 
     /**
-     * Retrieve the connector config
+     * Retrieve the connector config.
      *
-     * @param null $store
+     * @param null $store Store
+     *
      * @return array
      */
     public function getConfig($store = null)
     {
         return array(
             'access_token' => Mage::getStoreConfig('hackathon_chatconnector/hipchat/access_token', $store),
-            'room_id'      => Mage::getStoreConfig('hackathon_chatconnector/hipchat/room_id', $store),
+            'room_id' => Mage::getStoreConfig('hackathon_chatconnector/hipchat/room_id', $store),
         );
     }
 
     /**
-     * Retrieve the connector code
+     * Retrieve the connector code.
      *
      * @return string
      */

@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Hackathon_ChatConnector extension
+ * Hackathon_ChatConnector extension.
  *
  * NOTICE OF LICENSE
  *
@@ -10,15 +11,15 @@
  * http://opensource.org/licenses/mit-license.php
  *
  * @category       Hackathon
- * @package        Hackathon_ChatConnector
+ *
  * @copyright      Copyright (c) 2015
  * @license        http://opensource.org/licenses/mit-license.php MIT License
  */
 /**
- * ChatConnector module install script
+ * ChatConnector module install script.
  *
  * @category    Hackathon
- * @package     Hackathon_ChatConnector
+ *
  * @author      Sander Mangel <sander@sandermangel.nl>
  */
 
@@ -29,23 +30,23 @@ $installer->startSetup();
 $table = $installer->getConnection()
     ->newTable($installer->getTable('hackathon_chatconnector/queue'))
     ->addColumn('entity_id', Varien_Db_Ddl_Table::TYPE_INTEGER, null, array(
-            'identity'  => true,
-            'unsigned'  => true,
-            'nullable'  => false,
-            'primary'   => true,
+            'identity' => true,
+            'unsigned' => true,
+            'nullable' => false,
+            'primary' => true,
         ), 'Message Id')
     ->addColumn('connector', Varien_Db_Ddl_Table::TYPE_TEXT, 255, array(
-            'nullable'  => false,
+            'nullable' => false,
         ), 'Message Parameters')
     ->addColumn('message_params', Varien_Db_Ddl_Table::TYPE_TEXT, null, array(
-            'nullable'  => false,
-            'default'   => '',
+            'nullable' => false,
+            'default' => '',
         ), 'Message Parameters')
     ->addColumn('created_at', Varien_Db_Ddl_Table::TYPE_TIMESTAMP, null, array(
-            'nullable'  => true,
+            'nullable' => true,
         ), 'Created At')
     ->addColumn('updated_at', Varien_Db_Ddl_Table::TYPE_TIMESTAMP, null, array(
-            'nullable'  => true,
+            'nullable' => true,
         ), 'Updated At')
     ->addColumn('status', Varien_Db_Ddl_Table::TYPE_SMALLINT, null, array(
         ), 'Enabled')

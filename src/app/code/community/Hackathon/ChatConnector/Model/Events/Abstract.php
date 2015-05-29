@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Hackathon_ChatConnector extension
+ * Hackathon_ChatConnector extension.
  *
  * NOTICE OF LICENSE
  *
@@ -10,16 +11,16 @@
  * http://opensource.org/licenses/mit-license.php
  *
  * @category       Hackathon
- * @package        Hackathon_ChatConnector
+ *
  * @copyright      Copyright (c) 2015
  * @license        http://opensource.org/licenses/mit-license.php MIT License
  */
 
 /**
- * Abstract event model
+ * Abstract event model.
  *
  * @category    Hackathon
- * @package     Hackathon_ChatConnector
+ *
  * @author      Sander Mangel <sander@sandermangel.nl>
  */
 abstract class Hackathon_ChatConnector_Model_Events_Abstract
@@ -31,16 +32,16 @@ abstract class Hackathon_ChatConnector_Model_Events_Abstract
     protected $_helper = null;
 
     /**
-     * Add the item to the queue
+     * Add the item to the queue.
      *
-     * @param string $message
-     * @param array  $params
+     * @param string $message Message
+     * @param array  $params  Additional Params
      */
     protected function _addQueueItem($message, $params = array())
     {
         $params = array_merge(array('message' => $message), $params);
 
-        $serializedParams = json_encode((array)$params);
+        $serializedParams = json_encode((array) $params);
         $connectors = $this->getHelper()->getActiveConnectors();
 
         foreach ($connectors as $code) {
@@ -55,7 +56,7 @@ abstract class Hackathon_ChatConnector_Model_Events_Abstract
             /* @var $queueItem Hackathon_ChatConnector_Model_Queue */
             $queueItem = Mage::getModel('hackathon_chatconnector/queue')->setData(array(
                 'message_params' => $serializedParams,
-                'connector'      => $connector->getCode()
+                'connector' => $connector->getCode(),
             ));
 
             try {
@@ -67,6 +68,8 @@ abstract class Hackathon_ChatConnector_Model_Events_Abstract
     }
 
     /**
+     * Retrieve the helper.
+     *
      * @return Hackathon_ChatConnector_Helper_Data
      */
     public function getHelper()
@@ -79,7 +82,9 @@ abstract class Hackathon_ChatConnector_Model_Events_Abstract
     }
 
     /**
-     * @param Hackathon_ChatConnector_Helper_Data $helper
+     * Set the helper.
+     *
+     * @param Hackathon_ChatConnector_Helper_Data $helper Helper
      */
     public function setHelper($helper)
     {

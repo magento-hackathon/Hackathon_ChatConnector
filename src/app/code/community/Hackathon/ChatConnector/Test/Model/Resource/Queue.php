@@ -8,7 +8,7 @@ class Hackathon_ChatConnector_Test_Model_Resource_Queue extends EcomDev_PHPUnit_
     protected $_model;
 
     /**
-     * Set up test class
+     * Set up test class.
      */
     protected function setUp()
     {

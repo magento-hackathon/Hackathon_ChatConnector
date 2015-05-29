@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class Hackathon_ChatConnector_Model_Cron_Abstract
+ * Class Hackathon_ChatConnector_Model_Cron_Abstract.
  */
 abstract class Hackathon_ChatConnector_Model_Cron_Abstract
 {
@@ -11,14 +11,15 @@ abstract class Hackathon_ChatConnector_Model_Cron_Abstract
     protected $_helper = null;
 
     /**
-     * Run the cron
+     * Run the cron.
      */
     abstract public function run();
 
     /**
-     * Retrieve the connector by code
+     * Retrieve the connector by code.
      *
-     * @param string $code
+     * @param string $code Code
+     *
      * @return bool|Hackathon_ChatConnector_Model_Connectors_Interface
      */
     public function getConnectorByCode($code)
@@ -38,6 +39,8 @@ abstract class Hackathon_ChatConnector_Model_Cron_Abstract
     }
 
     /**
+     * Retrieve the helper.
+     *
      * @return Hackathon_ChatConnector_Helper_Data
      */
     public function getHelper()
@@ -50,7 +53,9 @@ abstract class Hackathon_ChatConnector_Model_Cron_Abstract
     }
 
     /**
-     * @param Hackathon_ChatConnector_Helper_Data $helper
+     * Set the helper.
+     *
+     * @param Hackathon_ChatConnector_Helper_Data $helper Helper
      */
     public function setHelper($helper)
     {

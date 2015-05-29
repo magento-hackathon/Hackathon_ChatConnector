@@ -1,13 +1,13 @@
 <?php
 
 /**
- * Class Hackathon_ChatConnector_Model_Cron_Cleanup
+ * Class Hackathon_ChatConnector_Model_Cron_Cleanup.
  */
 class Hackathon_ChatConnector_Model_Cron_Cleanup
     extends Hackathon_ChatConnector_Model_Cron_Abstract
 {
     /**
-     * Run the cron
+     * Run the cron.
      */
     public function run()
     {

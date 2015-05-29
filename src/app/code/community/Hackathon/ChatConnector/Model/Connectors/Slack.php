@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Hackathon_ChatConnector extension
+ * Hackathon_ChatConnector extension.
  *
  * NOTICE OF LICENSE
  *
@@ -10,16 +11,16 @@
  * http://opensource.org/licenses/mit-license.php
  *
  * @category       Hackathon
- * @package        Hackathon_ChatConnector
+ *
  * @copyright      Copyright (c) 2015
  * @license        http://opensource.org/licenses/mit-license.php MIT License
  */
 
 /**
- * Slack Connector
+ * Slack Connector.
  *
  * @category    Hackathon
- * @package     Hackathon_ChatConnector
+ *
  * @author      Marcel Hauri <marcel@hauri.me>
  */
 class Hackathon_ChatConnector_Model_Connectors_Slack
@@ -28,9 +29,10 @@ class Hackathon_ChatConnector_Model_Connectors_Slack
     const CODE = 'slack';
 
     /**
-     * Send the notification for the given connector
+     * Send the notification for the given connector.
      *
-     * @param array $params
+     * @param array $params Params
+     *
      * @return bool
      */
     public function notify($params = array())
@@ -62,23 +64,24 @@ class Hackathon_ChatConnector_Model_Connectors_Slack
     }
 
     /**
-     * Retrieve the connector config
+     * Retrieve the connector config.
      *
-     * @param null $store
+     * @param null $store Store
+     *
      * @return array
      */
     public function getConfig($store = null)
     {
         return array(
             'webhook_url' => Mage::getStoreConfig('hackathon_chatconnector/slack/webhook_url', $store),
-            'channel'     => Mage::getStoreConfig('hackathon_chatconnector/slack/channel', $store),
-            'username'    => Mage::getStoreConfig('hackathon_chatconnector/slack/username', $store),
-            'icon'        => Mage::getStoreConfig('hackathon_chatconnector/slack/icon', $store),
+            'channel' => Mage::getStoreConfig('hackathon_chatconnector/slack/channel', $store),
+            'username' => Mage::getStoreConfig('hackathon_chatconnector/slack/username', $store),
+            'icon' => Mage::getStoreConfig('hackathon_chatconnector/slack/icon', $store),
         );
     }
 
     /**
-     * Retrieve the connector code
+     * Retrieve the connector code.
      *
      * @return string
      */

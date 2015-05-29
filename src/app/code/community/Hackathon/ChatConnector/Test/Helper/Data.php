@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class Hackathon_ChatConnector_Test_Helper_Data
+ * Class Hackathon_ChatConnector_Test_Helper_Data.
  *
  * @group Hackathon_ChatConnector
  */
@@ -13,7 +13,7 @@ class Hackathon_ChatConnector_Test_Helper_Data extends EcomDev_PHPUnit_Test_Case
     protected $_helper;
 
     /**
-     * Set up test class
+     * Set up test class.
      */
     protected function setUp()
     {
