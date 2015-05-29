@@ -23,7 +23,6 @@
  */
 class Hackathon_ChatConnector_Model_Events_Transactional_Invoice
     extends Hackathon_ChatConnector_Model_Events_Abstract
-    implements Hackathon_ChatConnector_Model_Events_Interface
 {
     /**
      * listener
@@ -35,5 +34,21 @@ class Hackathon_ChatConnector_Model_Events_Transactional_Invoice
     public function listener($observer)
     {
         $order = $observer->getEvent()->getOrder();
+        $shippingObj = $order->getShippingAddress();
+
+        $messageTemplate = "New Invoice
+        Shipping to
+        {$shippingObj->getFirstname()} {{$shippingObj->getLastname()}}
+        {$shippingObj->getStreet()}}
+        {$shippingObj->getPostcode()}} {$shippingObj->getCity()}} ({$shippingObj->getPostcode()}} {$shippingObj->getCountryId()}})
+
+        Items
+        ";
+
+        foreach ($shippingObj->getAllVisibleItems() as $_item) {
+            $messageTemplate .= "{$_item->getQtyOrdered()}x {$_item->getName()} ({$_item->getSku()})\n";
+        }
+
+        $this->_addQueueItem($messageTemplate);
     }
 }
