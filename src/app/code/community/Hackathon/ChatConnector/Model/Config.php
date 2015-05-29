@@ -32,4 +32,34 @@ class Hackathon_ChatConnector_Model_Config
 
         return $connectors;
     }
+
+    /**
+     * Retrieve the slack config
+     *
+     * @param null $store
+     * @return array
+     */
+    public function getSlackConfig($store = null)
+    {
+        return array(
+            'webhook_url' => Mage::getStoreConfig('hackathon_chatconnector/slack/webhook_url', $store),
+            'channel'     => Mage::getStoreConfig('hackathon_chatconnector/slack/channel', $store),
+            'username'    => Mage::getStoreConfig('hackathon_chatconnector/slack/username', $store),
+            'icon'        => Mage::getStoreConfig('hackathon_chatconnector/slack/icon', $store),
+        );
+    }
+
+    /**
+     * Retrieve the hipchat config
+     *
+     * @param null $store
+     * @return array
+     */
+    public function getHipChatConfig($store = null)
+    {
+        return array(
+            'access_token' => Mage::getStoreConfig('hackathon_chatconnector/hipchat/access_token', $store),
+            'room_id'      => Mage::getStoreConfig('hackathon_chatconnector/hipchat/room_id', $store),
+        );
+    }
 }
