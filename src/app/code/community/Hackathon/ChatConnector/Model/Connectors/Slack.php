@@ -43,7 +43,12 @@ class Hackathon_ChatConnector_Model_Connectors_Slack
         curl_setopt($ch, CURLOPT_HEADER, 0);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, array('payload' => json_encode($params)));
+        curl_setopt($ch, CURLOPT_POSTFIELDS, array('payload' => json_encode(array(
+            'text' => $params['message'],
+            'channel' => $config['channel'],
+            'username' => $config['username'],
+            'icon_emoji' => $config['icon'],
+        ))));
         curl_exec($ch);
 
         $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);

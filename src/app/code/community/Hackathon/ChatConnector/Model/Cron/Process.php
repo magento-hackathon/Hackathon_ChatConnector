@@ -3,7 +3,7 @@
 /**
  * Class Hackathon_ChatConnector_Model_Cron
  */
-class Hackathon_ChatConnector_Model_Cron
+class Hackathon_ChatConnector_Model_Cron_Process
     extends Hackathon_ChatConnector_Model_Cron_Abstract
 {
     /**
@@ -53,7 +53,7 @@ class Hackathon_ChatConnector_Model_Cron
         foreach ($collection as $queueItem) {
             /* @var $queueItem Hackathon_ChatConnector_Model_Queue */
 
-            $params = unserialize($queueItem->getData('message_params'));
+            $params = json_decode($queueItem->getData('message_params'));
 
             $result = $connector->notify($params);
             if (true === $result) {
