@@ -29,10 +29,7 @@ class Hackathon_ChatConnector_Model_Queue extends Mage_Core_Model_Abstract
     const STATUS_FAILED = 3;
 
     /**
-     * _construct
-     *
-     * @access public
-     * @return void
+     * Init the resource model
      */
     public function _construct()
     {

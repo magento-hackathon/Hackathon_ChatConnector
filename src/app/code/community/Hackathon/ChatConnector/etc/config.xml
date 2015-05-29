@@ -24,17 +24,16 @@
                     </hackathon_chatconnector>
                 </observers>
             </sales_order_payment_cancel>
-
-<!--
-            <controller_action_postdispatch_newsletter_subscriber_confirm>
-                <observers>
-                    <hackathon_chatconnector>
-                        <class>Hackathon_ChatConnector_Model_Observer</class>
-                        <method>controllerActionPostdispatchNewsletterSubscriberConfirm</method>
-                    </hackathon_chatconnector>
-                </observers>
-            </controller_action_postdispatch_newsletter_subscriber_confirm>
--->
+            <!--
+                        <controller_action_postdispatch_newsletter_subscriber_confirm>
+                            <observers>
+                                <hackathon_chatconnector>
+                                    <class>Hackathon_ChatConnector_Model_Observer</class>
+                                    <method>controllerActionPostdispatchNewsletterSubscriberConfirm</method>
+                                </hackathon_chatconnector>
+                            </observers>
+                        </controller_action_postdispatch_newsletter_subscriber_confirm>
+            -->
         </events>
         <blocks>
             <hackathon_chatconnector>
@@ -81,14 +80,22 @@
     </global>
     <crontab>
         <jobs>
-            <hackathon_chatconnector_process_queue>
+            <hackathon_chatconnector_queue_process>
                 <schedule>
                     <config_path>hackathon_chatconnector/general/cron_expr_process</config_path>
                 </schedule>
                 <run>
                     <model>hackathon_chatconnector/cron_proccess::run</model>
                 </run>
-            </hackathon_chatconnector_process_queue>
+            </hackathon_chatconnector_queue_process>
+            <hackathon_chatconnector_queue_cleanup>
+                <schedule>
+                    <config_path>hackathon_chatconnector/general/cron_expr_cleanup</config_path>
+                </schedule>
+                <run>
+                    <model>hackathon_chatconnector/cron_cleanup::run</model>
+                </run>
+            </hackathon_chatconnector_queue_cleanup>
         </jobs>
     </crontab>
     <phpunit>
@@ -113,8 +120,9 @@
     <default>
         <hackathon_chatconnector>
             <general>
-                <cron_expr_process>*/5 * * * *</cron_expr_process>
                 <retry_frequency>7200</retry_frequency>
+                <cron_expr_process>*/5 * * * *</cron_expr_process>
+                <cron_expr_cleanup>0 2 * * *</cron_expr_cleanup>
             </general>
         </hackathon_chatconnector>
     </default>

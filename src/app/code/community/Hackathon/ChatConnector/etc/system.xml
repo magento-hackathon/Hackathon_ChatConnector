@@ -53,7 +53,8 @@
                             </depends>
                         </retry_frequency>
                         <cron_expr_process>
-                            <label>Cron Expr Process Queue</label>
+                            <label>Cron Expr Queue Processing</label>
+                            <comment><![CDATA[Defines the interval in which the queue gets processed.]]></comment>
                             <frontend_type>text</frontend_type>
                             <sort_order>4</sort_order>
                             <show_in_default>1</show_in_default>
@@ -63,6 +64,18 @@
                                 <enabled>1</enabled>
                             </depends>
                         </cron_expr_process>
+                        <cron_expr_cleanup>
+                            <label>Cron Expr Queue Cleanup</label>
+                            <comment><![CDATA[Defines the interval in which the processed queue items get cleaned up.]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                            </depends>
+                        </cron_expr_cleanup>
                     </fields>
                 </general>
                 <slack translate="label" module="hackathon_chatconnector">
