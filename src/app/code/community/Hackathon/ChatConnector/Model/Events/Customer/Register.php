@@ -30,19 +30,20 @@
          * Listen to customer register success event
          *
          * @param Varien_Event_Observer $event
+         * @return mixed|void
          */
-        public function customerRegisterSuccess(Varien_Event_Observer $event)
+        public function listener(Varien_Event_Observer $event)
         {
-            $customer          = $event->getCustomer();
-            $accountController = $event->getAccountController();
+            $customer = $event->getCustomer();
+            $helper   = $this->getHelper();
 
-            // Start logging!
-            Mage::log('customer register success');
-        }
+            $messageTemplate = $helper->__('%1$s %2$s has created an account in store view: %3$s',
+                $customer->getFirstname(),
+                $customer->getLastname(),
+                $customer->getCreatedIn()
+            );
 
-        public function listener()
-        {
-            // TODO: Implement listener() method.
+            $this->_addQueueItem($messageTemplate);
         }
 
     }

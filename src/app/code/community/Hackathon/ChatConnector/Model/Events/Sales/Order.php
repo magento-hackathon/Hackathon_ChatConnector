@@ -28,21 +28,25 @@
     {
 
         /**
+         * @param $payment
+         */
+        public function salesOrderPaymentCancel($payment)
+        {
+            // Start logging!
+            //Mage::log('Sales order payment canceled');
+        }
+
+        /**
          * Listen to order cancel payment event
          *
          * @param Varien_Event_Observer $event
+         * @return mixed|void
          */
-        public function salesOrderPaymentCancel(Varien_Event_Observer $event)
+        public function listener(Varien_Event_Observer $event)
         {
             $payment = $event->getPayment();
 
-            // Start logging!
-            Mage::log('Sales order payment canceled');
-        }
-
-        public function listener()
-        {
-            // TODO: Implement listener() method.
+            $this->salesOrderPaymentCancel($payment);
         }
 
     }

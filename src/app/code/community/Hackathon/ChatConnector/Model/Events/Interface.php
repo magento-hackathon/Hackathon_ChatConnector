@@ -23,5 +23,10 @@
  */
 Interface Hackathon_ChatConnector_Model_Events_Interface
 {
-    public function listener();
+    /**
+     * @param Varien_Event_Observer $event
+     *
+     * @return mixed
+     */
+    public function listener(Varien_Event_Observer $event);
 }

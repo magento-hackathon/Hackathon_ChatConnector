@@ -11,7 +11,7 @@
                 <observers>
                     <hackathon_chatconnector>
                         <class>Hackathon_ChatConnector_Model_Events_Customer_Register</class>
-                        <method>customerRegisterSuccess</method>
+                        <method>listener</method>
                     </hackathon_chatconnector>
                 </observers>
             </customer_register_success>
@@ -20,7 +20,7 @@
                 <observers>
                     <hackathon_chatconnector>
                         <class>Hackathon_ChatConnector_Model_Events_Sales_Order</class>
-                        <method>salesOrderPaymentCancel</method>
+                        <method>listener</method>
                     </hackathon_chatconnector>
                 </observers>
             </sales_order_payment_cancel>
