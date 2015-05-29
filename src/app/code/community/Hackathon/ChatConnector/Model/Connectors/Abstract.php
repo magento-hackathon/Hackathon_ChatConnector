@@ -38,7 +38,7 @@ class Hackathon_ChatConnector_Model_Connectors_Abstract extends Mage_Core_Model_
             ->addFieldToSelect(array('entity_id', 'message_params'))
             ->addFieldToFilter('connector', $this->_prefix);
 
-        $retryFreq = Mage::getModel('hackathon_chatconnector/config')->getRetryFrequency();
+        $retryFreq = Mage::helper('hackathon_chatconnector')->getRetryFrequency();
 
         $collection->getSelect()->where("
             `status` = " . Hackathon_ChatConnector_Model_Queue::STATUS_PENDING . "
