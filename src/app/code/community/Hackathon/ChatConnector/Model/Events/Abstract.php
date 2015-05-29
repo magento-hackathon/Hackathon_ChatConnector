@@ -39,6 +39,10 @@ abstract class Hackathon_ChatConnector_Model_Events_Abstract
      */
     protected function _addQueueItem($message, $params = array())
     {
+        if (!$this->getHelper()->isActive()) {
+            return;
+        }
+
         $params = array_merge(array('message' => $message), $params);
 
         $serializedParams = json_encode((array) $params);
