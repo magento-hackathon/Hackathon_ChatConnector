@@ -23,6 +23,10 @@
  */
 class Hackathon_ChatConnector_Model_Queue extends Mage_Core_Model_Abstract
 {
+    const STATUS_PENDING = 1;
+    const STATUS_PROCESSED = 2;
+    const STATUS_FAILED = 3;
+
     /**
      * _construct
      *

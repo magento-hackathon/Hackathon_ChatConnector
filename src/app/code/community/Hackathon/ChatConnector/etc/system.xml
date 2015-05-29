@@ -40,6 +40,15 @@
                                 <enabled>1</enabled>
                             </depends>
                         </connectors>
+                        <retry_frequency translate="label,comment">
+                            <label>Retry frequency</label>
+                            <comment><[CDATA[Whenever a queue item isn't pushed, try after X seconds]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </retry_frequency>
                     </fields>
                 </general>
                 <slack translate="label" module="hackathon_chatconnector">

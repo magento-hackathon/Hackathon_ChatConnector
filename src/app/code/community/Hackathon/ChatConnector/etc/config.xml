@@ -46,4 +46,11 @@
             </modules>
         </suite>
     </phpunit>
+    <default>
+        <hackathon_chatconnector>
+            <general>
+                <retry_frequency>7200</retry_frequency>
+            </general>
+        </hackathon_chatconnector>
+    </default>
 </config>

@@ -62,4 +62,15 @@ class Hackathon_ChatConnector_Model_Config
             'room_id'      => Mage::getStoreConfig('hackathon_chatconnector/hipchat/room_id', $store),
         );
     }
+
+    /**
+     * Get retry frequency
+     *
+     * @param null $store
+     * @return int
+     */
+    public function getRetryFrequency($store = null)
+    {
+        return (int)Mage::getStoreConfig('hackathon_chatconnector/general/retry_frequency', $store);
+    }
 }

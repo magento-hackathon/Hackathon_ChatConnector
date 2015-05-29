@@ -23,8 +23,6 @@
  */
 Interface Hackathon_ChatConnector_Model_Connectors_Interface
 {
-    protected $_prefix;
-
-    public notify();
-    protected _getConfig();
+    public function notify();
+    public function getConfig();
 }
