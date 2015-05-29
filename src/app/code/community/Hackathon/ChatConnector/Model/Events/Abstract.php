@@ -46,7 +46,7 @@ class Hackathon_ChatConnector_Model_Events_Abstract extends Mage_Core_Model_Abst
                 'message_params' => $serializedParams,
                 'connector' => $prefix,
                 'status' => Hackathon_ChatConnector_Model_Queue::STATUS_PENDING
-            ))
+            ));
 
             try {
                 $queueItem->save();
