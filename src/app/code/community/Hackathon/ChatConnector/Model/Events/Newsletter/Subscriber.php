@@ -28,24 +28,7 @@
         implements Hackathon_ChatConnector_Model_Events_Interface
     {
 
-        /**
-         * @TODO Probably not the best event to observe.. could it be customer save before/after?
-         *
-         * @param Varien_Event_Observer $event
-         */
-//        public function controllerActionPostdispatchNewsletterSubscriberConfirm(Varien_Event_Observer $event)
-//        {
-//            $session = Mage::getSingleton('core/session');
-//
-//            /** @var Mage_Core_Model_Message_Collection $messages */
-//            $messages = $session->getMessages();
-//
-//            $lastAddedMessage = $messages->getLastAddedMessage();
-//
-//            // if lastAddedMessage === '';
-//        }
-
-        public function listener()
+        public function listener(Varien_Event_Observer $event)
         {
             // TODO: Implement listener() method.
         }

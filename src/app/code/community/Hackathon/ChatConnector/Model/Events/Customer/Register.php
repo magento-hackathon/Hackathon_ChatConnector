@@ -27,22 +27,25 @@
     {
 
         /**
+         * @param $customer
+         */
+        public function customerRegisterSuccess($customer)
+        {
+            $this->_addQueueItem('A new customer has..');
+        }
+
+        /**
          * Listen to customer register success event
          *
          * @param Varien_Event_Observer $event
+         * @return mixed|void
          */
-        public function customerRegisterSuccess(Varien_Event_Observer $event)
+        public function listener(Varien_Event_Observer $event)
         {
             $customer          = $event->getCustomer();
-            $accountController = $event->getAccountController();
+            //$accountController = $event->getAccountController();
 
-            // Start logging!
-            Mage::log('customer register success');
-        }
-
-        public function listener()
-        {
-            // TODO: Implement listener() method.
+            $this->customerRegisterSuccess($customer);
         }
 
     }
