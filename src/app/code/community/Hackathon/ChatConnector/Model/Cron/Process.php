@@ -53,7 +53,7 @@ class Hackathon_ChatConnector_Model_Cron_Process
         foreach ($collection as $queueItem) {
             /* @var $queueItem Hackathon_ChatConnector_Model_Queue */
 
-            $params = json_decode($queueItem->getData('message_params'));
+            $params = json_decode($queueItem->getData('message_params'), true);
 
             $result = $connector->notify($params);
             if (true === $result) {

@@ -71,7 +71,7 @@
             <sales_order_invoice_register>
                 <observers>
                     <hackathon_chatconnector_sales_order_invoice_register>
-                        <class>Hackathon_ChatConnector_Model_Events_Transactional_Invoice</class>
+                        <class>Hackathon_ChatConnector_Model_Events_Sales_Invoice</class>
                         <method>listener</method>
                     </hackathon_chatconnector_sales_order_invoice_register>
                 </observers>

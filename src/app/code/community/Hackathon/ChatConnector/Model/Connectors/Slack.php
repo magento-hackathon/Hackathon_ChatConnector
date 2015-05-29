@@ -41,7 +41,7 @@ class Hackathon_ChatConnector_Model_Connectors_Slack
         curl_setopt($ch, CURLOPT_URL, $config['webhook_url']);
         curl_setopt($ch, CURLOPT_NOBODY, 0);
         curl_setopt($ch, CURLOPT_HEADER, 0);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, false);
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, array('payload' => json_encode(array(
             'text' => $params['message'],

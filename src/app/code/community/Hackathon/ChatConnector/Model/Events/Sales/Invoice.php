@@ -35,12 +35,13 @@ class Hackathon_ChatConnector_Model_Events_Sales_Invoice
     {
         $order = $observer->getEvent()->getOrder();
         $shippingObj = $order->getShippingAddress();
+        $street = implode(' ', (array)$shippingObj->getStreet());
 
         $messageTemplate = "New Invoice
         Shipping to
-        {$shippingObj->getFirstname()} {{$shippingObj->getLastname()}}
-        {$shippingObj->getStreet()}}
-        {$shippingObj->getPostcode()}} {$shippingObj->getCity()}} ({$shippingObj->getPostcode()}} {$shippingObj->getCountryId()}})
+        {$shippingObj->getFirstname()} {$shippingObj->getLastname()}
+        {$street}
+        {$shippingObj->getPostcode()} {$shippingObj->getCity()} {$shippingObj->getPostcode()} ({$shippingObj->getCountryId()})
 
         Items
         ";
