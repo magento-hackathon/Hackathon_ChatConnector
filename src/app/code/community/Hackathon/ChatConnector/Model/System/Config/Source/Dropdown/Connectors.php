@@ -29,15 +29,14 @@ class Hackathon_ChatConnector_Model_System_Config_Source_Dropdown_Connectors
      */
     public function toOptionArray()
     {
-        return array(
-            array(
-                'value' => 'slack',
-                'label' => 'Slack',
-            ),
-            array(
-                'value' => 'hipchat',
-                'label' => 'HipChat',
-            ),
-        );
+        $values = array();
+        $connectors = Mage::helper('hackathon_chatconnector')->getConfiguredConnectors();
+        foreach ($connectors as $key => $params) {
+            $values[] = array(
+                'value' => $key,
+                'label' => $params['name'],
+            );
+        }
+        return $values;
     }
 }

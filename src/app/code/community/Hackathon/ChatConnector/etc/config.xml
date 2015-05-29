@@ -56,6 +56,18 @@
             </modules>
         </suite>
     </phpunit>
+    <chatconnector>
+        <connectors>
+            <slack>
+                <name>Slack</name>
+                <class>Hackathon_ChatConnector_Model_Connectors_Slack</class>
+            </slack>
+            <hipchat>
+                <name>HipChat</name>
+                <class>Hackathon_ChatConnector_Model_Connectors_HipChat</class>
+            </hipchat>
+        </connectors>
+    </chatconnector>
     <default>
         <hackathon_chatconnector>
             <general>
