@@ -1,2 +1,2 @@
-src/app/code/local/Hackathon/ChatConnector         app/code/local/Hackathon/ChatConnector
+src/app/code/community/Hackathon/ChatConnector     app/code/community/Hackathon/ChatConnector
 src/app/etc/modules/Hackathon_ChatConnector.xml    app/etc/modules/Hackathon_ChatConnector.xml
