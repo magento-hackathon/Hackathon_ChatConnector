@@ -1,6 +1,6 @@
 # Hackathon_ChatConnector
 
-This extensions provides an integration for some popular chat and collaboration tools so that you will get notified 
+This extensions provides an integration for some popular chat and collaboration tools so that you will get notified
 if some events happen in your Magento store, e.g. a new order is created, a new customer signs up, etc.
 
 ## Build Status
@@ -16,8 +16,8 @@ if some events happen in your Magento store, e.g. a new order is created, a new 
 ## Supported Events
 
 This is a list of all events in Magento that will trigger a notification for the configured chats:
-
-* tbd
+- customer_register_success
+- sales_order_payment_cancel
 
 ## Contributors
 
