@@ -21,7 +21,7 @@
  * @package     Hackathon_ChatConnector
  * @author      Sander Mangel <sander@sandermangel.nl>
  */
-class Hackathon_ChatConnector_Model_Events_Transactional_Invoice
+class Hackathon_ChatConnector_Model_Events_Sales_Invoice
     extends Hackathon_ChatConnector_Model_Events_Abstract
 {
     /**
