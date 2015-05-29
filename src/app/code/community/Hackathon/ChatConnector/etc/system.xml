@@ -56,7 +56,7 @@
                             <sort_order>30</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>0</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
                         </webhook_url>
                         <channel translate="label" module="hackathon_chatconnector">
                             <label>Channel</label>
@@ -64,7 +64,7 @@
                             <sort_order>40</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>0</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
                         </channel>
                         <username translate="label" module="hackathon_chatconnector">
                             <label>Username</label>
@@ -72,7 +72,7 @@
                             <sort_order>50</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>0</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
                         </username>
                         <icon translate="label" module="hackathon_chatconnector">
                             <label>Icon</label>
@@ -81,7 +81,7 @@
                             <comment>For more informations see: https://my.slack.com/customize/emoji</comment>
                             <show_in_default>1</show_in_default>
                             <show_in_website>0</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
                         </icon>
                     </fields>
                 </slack>
@@ -99,7 +99,7 @@
                             <sort_order>30</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>0</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
                         </access_token>
                         <room_id translate="label" module="hackathon_chatconnector">
                             <label>Room ID</label>
@@ -107,7 +107,7 @@
                             <sort_order>40</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>0</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
                         </room_id>
                     </fields>
                 </hipchat>
@@ -126,7 +126,7 @@
                             <sort_order>10</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>0</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
                         </new_order>
                         <new_customer_account translate="label" module="hackathon_chatconnector">
                             <label>New Customer Account</label>
@@ -135,7 +135,7 @@
                             <sort_order>10</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>0</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
                         </new_customer_account>
                         <admin_user_login_failed translate="label" module="hackathon_chatconnector">
                             <label>Admin User Login Failed</label>
@@ -144,7 +144,7 @@
                             <sort_order>20</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>0</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
                         </admin_user_login_failed>
                     </fields>
                 </notifications>
