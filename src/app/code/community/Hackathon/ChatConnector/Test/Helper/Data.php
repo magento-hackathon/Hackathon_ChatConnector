@@ -44,11 +44,11 @@ class Hackathon_ChatConnector_Test_Helper_Data extends EcomDev_PHPUnit_Test_Case
      * @loadFixture
      * @loadExpectations
      */
-    public function getConnectors()
+    public function getActiveConnectors()
     {
         $this->assertEquals(
             $this->expected('connectors')->getResult(),
-            $this->_helper->getConnectors()
+            $this->_helper->getActiveConnectors()
         );
     }
 
