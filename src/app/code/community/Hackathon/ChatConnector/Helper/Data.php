@@ -26,7 +26,7 @@ class Hackathon_ChatConnector_Helper_Data extends Mage_Core_Helper_Abstract
      * @param null $store
      * @return array|mixed
      */
-    public function activeConnectors($store = null)
+    public function getActiveConnectors($store = null)
     {
         $connectors = Mage::getStoreConfig(self::XML_PATH_GENERAL_CONNECTORS, $store);
         $connectors = explode(',', $connectors);
