@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Hackathon_ChatConnector>
+            <version>1.0.0</version>
+        </Hackathon_ChatConnector>
+    </modules>
+    <global>
+        <blocks>
+            <hackathon_chatconnector>
+                <class>Hackathon_ChatConnector_Block</class>
+            </hackathon_chatconnector>
+        </blocks>
+        <helpers>
+            <hackathon_chatconnector>
+                <class>Hackathon_ChatConnector_Helper</class>
+            </hackathon_chatconnector>
+        </helpers>
+        <models>
+            <hackathon_chatconnector>
+                <class>Hackathon_ChatConnector_Model</class>
+            </hackathon_chatconnector>
+        </models>
+    </global>
+</config>

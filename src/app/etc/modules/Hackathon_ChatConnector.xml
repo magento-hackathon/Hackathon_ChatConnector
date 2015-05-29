@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Hackathon_ChatConnector>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends></depends>
+        </Hackathon_ChatConnector>
+    </modules>
+</config>
