@@ -15,6 +15,14 @@
                     </hackathon_chatconnector>
                 </observers>
             </customer_register_success>
+            <sales_order_payment_cancel>
+                <observers>
+                    <hackathon_chatconnector>
+                        <class>Hackathon_ChatConnector_Model_Observer</class>
+                        <method>salesOrderPaymentCancel</method>
+                    </hackathon_chatconnector>
+                </observers>
+            </sales_order_payment_cancel>
         </events>
         <blocks>
             <hackathon_chatconnector>

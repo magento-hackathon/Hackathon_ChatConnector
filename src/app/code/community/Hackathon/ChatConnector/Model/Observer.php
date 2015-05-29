@@ -29,11 +29,26 @@
         /**
          * Listen to customer register success event
          *
-         * @param $event
+         * @param Varien_Event_Observer $event
          */
-        public function customerRegisterSuccess($event)
+        public function customerRegisterSuccess(Varien_Event_Observer $event)
         {
+            $customer = $event->getCustomer();
+            $accountController = $event->getAccountController();
 
+            // Start logging!
+        }
+
+        /**
+         * Listen to order cancel payment event
+         *
+         * @param Varien_Event_Observer $event
+         */
+        public function salesOrderPaymentCancel(Varien_Event_Observer $event)
+        {
+            $payment = $event->getPayment();
+
+            // Start logging!
         }
 
     }
