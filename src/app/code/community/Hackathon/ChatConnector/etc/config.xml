@@ -22,4 +22,11 @@
             </hackathon_chatconnector>
         </models>
     </global>
+    <phpunit>
+        <suite>
+            <modules>
+                <Hackathon_ChatConnector/>
+            </modules>
+        </suite>
+    </phpunit>
 </config>
