@@ -14,6 +14,7 @@
  * @copyright      Copyright (c) 2015
  * @license        http://opensource.org/licenses/mit-license.php MIT License
  */
+
 /**
  * HipChat Connector
  *
@@ -21,24 +22,17 @@
  * @package     Hackathon_ChatConnector
  * @author      Marcel Hauri <marcel@hauri.me>
  */
-
 class Hackathon_ChatConnector_Model_Connectors_HipChat
     extends Hackathon_ChatConnector_Model_Connectors_Abstract
 {
-    protected $_prefix = 'hipchat';
+    const CODE = 'hipchat';
 
     /**
-     * @return array
+     * Send the notification for the given connector
+     *
+     * @param array $params
+     * @return bool
      */
-    public function getConfig()
-    {
-        $store = Mage::app()->getStore()->getStoreId();
-        return array(
-            'access_token' => Mage::getStoreConfig('hackathon_chatconnector/hipchat/access_token', $store),
-            'room_id'      => Mage::getStoreConfig('hackathon_chatconnector/hipchat/room_id', $store),
-        );
-    }
-
     public function notify($params = array())
     {
         $config = $this->getConfig();
@@ -48,7 +42,7 @@ class Hackathon_ChatConnector_Model_Connectors_HipChat
             $config['access_token']
         );
 
-        $ch     = curl_init();
+        $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_NOBODY, 0);
         curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -58,12 +52,37 @@ class Hackathon_ChatConnector_Model_Connectors_HipChat
         curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
         curl_exec($ch);
 
-        $status = curl_getinfo($ch,CURLINFO_HTTP_CODE);
+        $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
 
-        if(intval($status) === 200 || intval($status) === 204) {
+        if (intval($status) === 200 || intval($status) === 204) {
             return true;
         }
+
         return false;
+    }
+
+    /**
+     * Retrieve the connector config
+     *
+     * @param null $store
+     * @return array
+     */
+    public function getConfig($store = null)
+    {
+        return array(
+            'access_token' => Mage::getStoreConfig('hackathon_chatconnector/hipchat/access_token', $store),
+            'room_id'      => Mage::getStoreConfig('hackathon_chatconnector/hipchat/room_id', $store),
+        );
+    }
+
+    /**
+     * Retrieve the connector code
+     *
+     * @return string
+     */
+    public function getCode()
+    {
+        return self::CODE;
     }
 }

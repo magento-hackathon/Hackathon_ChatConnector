@@ -14,6 +14,7 @@
  * @copyright      Copyright (c) 2015
  * @license        http://opensource.org/licenses/mit-license.php MIT License
  */
+
 /**
  * Connector interface
  *
@@ -23,6 +24,26 @@
  */
 Interface Hackathon_ChatConnector_Model_Connectors_Interface
 {
+    /**
+     * Send the notification for the given connector
+     *
+     * @param array $params
+     * @return bool
+     */
     public function notify($params = array());
-    public function getConfig();
+
+    /**
+     * Retrieve the connector config
+     *
+     * @param null $store
+     * @return array
+     */
+    public function getConfig($store = null);
+
+    /**
+     * Retrieve the connector code
+     *
+     * @return string
+     */
+    public function getCode();
 }

@@ -14,6 +14,7 @@
  * @copyright      Copyright (c) 2015
  * @license        http://opensource.org/licenses/mit-license.php MIT License
  */
+
 /**
  * Abstract connector model
  *
@@ -21,21 +22,9 @@
  * @package     Hackathon_ChatConnector
  * @author      Sander Mangel <sander@sandermangel.nl>, Marcel Hauri <marcel@hauri.me>
  */
-class Hackathon_ChatConnector_Model_Connectors_Abstract extends Mage_Core_Model_Abstract
+class Hackathon_ChatConnector_Model_Connectors_Abstract
+    implements Hackathon_ChatConnector_Model_Connectors_Interface
 {
-    protected $_prefix = '';
-
-    /**
-     * getPrefix
-     *
-     * @access public
-     * @return string
-     */
-    public function getPrefix()
-    {
-        return $this->_prefix;
-    }
-
     /**
      * processQueue
      *
@@ -47,7 +36,7 @@ class Hackathon_ChatConnector_Model_Connectors_Abstract extends Mage_Core_Model_
         // Get queued items
         $collection = Mage::getResourceModel('hackathon_chatconnector/queue_collection')
             ->addFieldToSelect(array('entity_id', 'message_params'))
-            ->addFieldToFilter('connector', $this->_prefix);
+            ->addFieldToFilter('connector', $this->getCode());
 
         $retryFreq = Mage::helper('hackathon_chatconnector')->getRetryFrequency();
 
@@ -90,7 +79,5 @@ class Hackathon_ChatConnector_Model_Connectors_Abstract extends Mage_Core_Model_
                 WHERE `entity_id` IN (" . implode(',', $failIds) . ")
             ");
         }
-
-
     }
 }
