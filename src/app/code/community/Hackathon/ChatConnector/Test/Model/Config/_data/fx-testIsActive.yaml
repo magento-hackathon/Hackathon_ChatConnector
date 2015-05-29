@@ -1,0 +1,2 @@
+config:
+  default/hackathon_chatconnector/general/enabled: 1

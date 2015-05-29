@@ -19,7 +19,7 @@
                     <show_in_website>0</show_in_website>
                     <show_in_store>0</show_in_store>
                     <fields>
-                        <new_order translate="label" module="hackathon_chatconnector">
+                        <enabled translate="label" module="hackathon_chatconnector">
                             <label>Enable ChatConnector</label>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
@@ -27,16 +27,19 @@
                             <show_in_default>1</show_in_default>
                             <show_in_website>0</show_in_website>
                             <show_in_store>0</show_in_store>
-                        </new_order>
-                        <connector translate="label comment">
+                        </enabled>
+                        <connectors translate="label comment">
                             <label>Connector</label>
-                            <frontend_type>select</frontend_type>
+                            <frontend_type>multiselect</frontend_type>
                             <source_model>hackathon_chatconnector/system_config_source_dropdown_connectors</source_model>
                             <sort_order>20</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>0</show_in_website>
                             <show_in_store>0</show_in_store>
-                        </connector>
+                            <depends>
+                                <enabled>1</enabled>
+                            </depends>
+                        </connectors>
                     </fields>
                 </general>
                 <slack translate="label" module="hackathon_chatconnector">
