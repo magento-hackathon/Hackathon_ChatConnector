@@ -45,8 +45,9 @@ class Hackathon_ChatConnector_Model_Events_Transactional_Invoice
         Items
         ";
 
-        foreach ($shippingObj->getAllVisibleItems() as $_item) {
-            $messageTemplate .= "{$_item->getQtyOrdered()}x {$_item->getName()} ({$_item->getSku()})\n";
+        foreach ($order->getAllVisibleItems() as $_item) {
+            $qty = (int)$_item->getQtyOrdered();
+            $messageTemplate .= "{$qty}x {$_item->getName()} ({$_item->getSku()})\n";
         }
 
         $this->_addQueueItem($messageTemplate);
