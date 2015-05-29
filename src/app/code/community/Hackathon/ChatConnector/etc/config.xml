@@ -10,19 +10,31 @@
             <customer_register_success>
                 <observers>
                     <hackathon_chatconnector>
-                        <class>Hackathon_ChatConnector_Model_Observer</class>
+                        <class>Hackathon_ChatConnector_Model_Events_Customer_Register</class>
                         <method>customerRegisterSuccess</method>
                     </hackathon_chatconnector>
                 </observers>
             </customer_register_success>
+
             <sales_order_payment_cancel>
                 <observers>
                     <hackathon_chatconnector>
-                        <class>Hackathon_ChatConnector_Model_Observer</class>
+                        <class>Hackathon_ChatConnector_Model_Events_Sales_Order</class>
                         <method>salesOrderPaymentCancel</method>
                     </hackathon_chatconnector>
                 </observers>
             </sales_order_payment_cancel>
+
+<!--
+            <controller_action_postdispatch_newsletter_subscriber_confirm>
+                <observers>
+                    <hackathon_chatconnector>
+                        <class>Hackathon_ChatConnector_Model_Observer</class>
+                        <method>controllerActionPostdispatchNewsletterSubscriberConfirm</method>
+                    </hackathon_chatconnector>
+                </observers>
+            </controller_action_postdispatch_newsletter_subscriber_confirm>
+-->
         </events>
         <blocks>
             <hackathon_chatconnector>
