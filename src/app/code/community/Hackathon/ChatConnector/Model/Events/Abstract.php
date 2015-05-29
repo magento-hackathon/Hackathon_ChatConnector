@@ -14,6 +14,7 @@
  * @copyright      Copyright (c) 2015
  * @license        http://opensource.org/licenses/mit-license.php MIT License
  */
+
 /**
  * Abstract event model
  *
@@ -23,6 +24,11 @@
  */
 class Hackathon_ChatConnector_Model_Events_Abstract extends Mage_Core_Model_Abstract
 {
+    /**
+     * @var Hackathon_ChatConnector_Helper_Data
+     */
+    protected $_helper = null;
+
     /**
      * processQueue
      *
@@ -36,25 +42,48 @@ class Hackathon_ChatConnector_Model_Events_Abstract extends Mage_Core_Model_Abst
         $params = array_merge(array('message' => $message), $params);
 
         $serializedParams = json_encode((array)$params);
-        $connectors = Mage::helper('hackathon_chatconnector')->getActiveConnectors();
+        $connectors = $this->getHelper()->getActiveConnectors();
 
         foreach ($connectors as $code) {
-            $connectorParams = Mage::helper('hackathon_chatconnector')->getConfiguredConnectors($code);
+            $connectorParams = $this->getHelper()->getConfiguredConnectors($code);
+
+            /* @var $connector Hackathon_ChatConnector_Model_Connectors_Interface */
             $connector = Mage::getModel($connectorParams['class']);
             if (!$connector) {
                 continue;
             }
 
+            /* @var $queueItem Hackathon_ChatConnector_Model_Queue */
             $queueItem = Mage::getModel('hackathon_chatconnector/queue')->setData(array(
                 'message_params' => $serializedParams,
-                'connector' => $connector->getPrefix()
+                'connector'      => $connector->getCode()
             ));
 
             try {
                 $queueItem->save();
-            } catch(Exception $e) {
+            } catch (Exception $e) {
                 Mage::logException($e);
             }
         }
+    }
+
+    /**
+     * @return Hackathon_ChatConnector_Helper_Data
+     */
+    public function getHelper()
+    {
+        if (null === $this->_helper) {
+            $this->setHelper(Mage::helper('hackathon_chatconnector'));
+        }
+
+        return $this->_helper;
+    }
+
+    /**
+     * @param Hackathon_ChatConnector_Helper_Data $helper
+     */
+    public function setHelper($helper)
+    {
+        $this->_helper = $helper;
     }
 }

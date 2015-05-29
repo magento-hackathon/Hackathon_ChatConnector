@@ -25,59 +25,5 @@
 abstract class Hackathon_ChatConnector_Model_Connectors_Abstract
     implements Hackathon_ChatConnector_Model_Connectors_Interface
 {
-    /**
-     * processQueue
-     *
-     * @access protected
-     * @return Void
-     */
-    public function processQueue()
-    {
-        // Get queued items
-        $collection = Mage::getResourceModel('hackathon_chatconnector/queue_collection')
-            ->addFieldToSelect(array('entity_id', 'message_params'))
-            ->addFieldToFilter('connector', $this->getCode());
 
-        $retryFreq = Mage::helper('hackathon_chatconnector')->getRetryFrequency();
-
-        $collection->getSelect()->where("
-            `status` = " . Hackathon_ChatConnector_Model_Queue::STATUS_PENDING . "
-            OR (
-                `status` = " . Hackathon_ChatConnector_Model_Queue::STATUS_FAILED . "
-                AND `updated_at` <= '" . Mage::getModel('core/date')->date('Y-m-d H:i:s', time() - $retryFreq) . "'
-        )");
-
-        // Iterate over items and try sending them
-        $succesIds = array();
-        $failIds = array();
-        foreach ($collection as $_item) {
-            if ($this->notify()) {
-                $succesIds[] = $_item->getId();
-            } else {
-                $failIds[] = $_item->getId();
-            }
-        }
-
-        // Update items with status. Either processed or failed
-        $resource = Mage::getSingleton('core/resource');
-        $write = $resource->getConnection('core_write');
-
-        if (count($succesIds)) {
-            $write->query("
-                UPDATE {$resource->getTableName('hackathon_chatconnector/queue')}
-                SET `status` = '" . Hackathon_ChatConnector_Model_Queue::STATUS_PROCESSED . "'
-                , `updated_at` = '" . Mage::getModel('core/date')->date('Y-m-d H:i:s') . "'
-                WHERE `entity_id` IN (" . implode(',', $succesIds) . ")
-            ");
-        }
-
-        if (count($failIds)) {
-            $write->query("
-                UPDATE {$resource->getTableName('hackathon_chatconnector/queue')}
-                SET `status` = '" . Hackathon_ChatConnector_Model_Queue::STATUS_FAILED . "'
-                , `updated_at` = '" . Mage::getModel('core/date')->date('Y-m-d H:i:s') . "'
-                WHERE `entity_id` IN (" . implode(',', $failIds) . ")
-            ");
-        }
-    }
 }
