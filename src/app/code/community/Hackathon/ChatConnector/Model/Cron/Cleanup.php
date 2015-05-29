@@ -11,6 +11,10 @@ class Hackathon_ChatConnector_Model_Cron_Cleanup
      */
     public function run()
     {
+        if (!$this->getHelper()->isActive()) {
+            return;
+        }
+
         /* @var $queueResource Hackathon_ChatConnector_Model_Resource_Queue */
         $queueResource = Mage::getResourceModel('hackathon_chatconnector/queue');
         $queueResource->cleanupProcessedEntries();

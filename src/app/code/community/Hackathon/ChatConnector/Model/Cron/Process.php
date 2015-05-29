@@ -11,6 +11,10 @@ class Hackathon_ChatConnector_Model_Cron_Process
      */
     public function run()
     {
+        if (!$this->getHelper()->isActive()) {
+            return;
+        }
+
         $connectors = $this->getHelper()->getActiveConnectors();
         foreach ($connectors as $connectorCode) {
             /* @var $connector Hackathon_ChatConnector_Model_Connectors_Interface */
