@@ -1,0 +1,6 @@
+test1:
+  entityIds: 1
+test2:
+  entityIds:
+    - 2
+    - 3

@@ -52,6 +52,27 @@ class Hackathon_ChatConnector_Model_Resource_Queue extends Mage_Core_Model_Resou
     }
 
     /**
+     * @param array $entityIds
+     * @param int   $status
+     */
+    public function updateStatus($entityIds, $status)
+    {
+        if (!is_array($entityIds)) {
+            $entityIds = array($entityIds);
+        }
+
+        $adapter = $this->_getWriteAdapter();
+        $bind = array(
+            'status'     => $status,
+            'updated_at' => Mage::getModel('core/date')->gmtDate(),
+        );
+        $where = array(
+            'entity_id IN(?)' => $entityIds
+        );
+        $adapter->update($this->getMainTable(), $bind, $where);
+    }
+
+    /**
      * Update all non-processed rma entries to processed
      */
     public function cleanupProcessedEntries()

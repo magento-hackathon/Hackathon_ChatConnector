@@ -1,0 +1,20 @@
+tables:
+  hackathon_chatconnector/queue:
+    - entity_id: 1
+      connector: slack
+      message_params: LOREM IPSUM
+      created_at: 2015-05-29 14:00:00
+      updated_at: 2015-05-29 14:00:00
+      status: 1
+    - entity_id: 2
+      connector: slack
+      message_params: LOREM IPSUM
+      created_at: 2015-05-29 14:00:00
+      updated_at: 2015-05-29 14:00:00
+      status: 1
+    - entity_id: 3
+      connector: slack
+      message_params: LOREM IPSUM
+      created_at: 2015-05-29 14:00:00
+      updated_at: 2015-05-29 14:00:00
+      status: 1

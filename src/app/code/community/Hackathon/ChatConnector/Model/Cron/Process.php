@@ -42,14 +42,18 @@ class Hackathon_ChatConnector_Model_Cron
                 AND `updated_at` <= '" . Mage::getModel('core/date')->date(null, time() - $retryFreq) . "'
         )");
 
+        // Check if there are messsages to process
+        if (!$collection->count()) {
+            return;
+        }
+
         // Iterate over items and try sending them
         $successIds = array();
         $failIds = array();
         foreach ($collection as $queueItem) {
             /* @var $queueItem Hackathon_ChatConnector_Model_Queue */
 
-            // TODO: Get params from queue item
-            $params = array();
+            $params = unserialize($queueItem->getData('message_params'));
 
             $result = $connector->notify($params);
             if (true === $result) {
@@ -59,26 +63,17 @@ class Hackathon_ChatConnector_Model_Cron
             }
         }
 
-        // Update items with status. Either processed or failed
-        $resource = Mage::getSingleton('core/resource');
-        $write = $resource->getConnection('core_write');
+        /* @var $queueResource Hackathon_ChatConnector_Model_Resource_Queue */
+        $queueResource = Mage::getResourceModel('hackathon_chatconnector/queue');
 
+        // Update the successful items
         if (count($successIds)) {
-            $write->query("
-                UPDATE {$resource->getTableName('hackathon_chatconnector/queue')}
-                SET `status` = '" . Hackathon_ChatConnector_Model_Queue::STATUS_PROCESSED . "'
-                , `updated_at` = '" . Mage::getModel('core/date')->date('Y-m-d H:i:s') . "'
-                WHERE `entity_id` IN (" . implode(',', $successIds) . ")
-            ");
+            $queueResource->updateStatus($successIds, Hackathon_ChatConnector_Model_Queue::STATUS_PROCESSED);
         }
 
+        // Update the failed items
         if (count($failIds)) {
-            $write->query("
-                UPDATE {$resource->getTableName('hackathon_chatconnector/queue')}
-                SET `status` = '" . Hackathon_ChatConnector_Model_Queue::STATUS_FAILED . "'
-                , `updated_at` = '" . Mage::getModel('core/date')->date('Y-m-d H:i:s') . "'
-                WHERE `entity_id` IN (" . implode(',', $failIds) . ")
-            ");
+            $queueResource->updateStatus($failIds, Hackathon_ChatConnector_Model_Queue::STATUS_FAILED);
         }
     }
 }
