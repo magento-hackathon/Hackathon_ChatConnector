@@ -32,6 +32,9 @@ class Hackathon_ChatConnector_Model_Events_Sales_Invoice
      */
     public function listener(Varien_Event_Observer $observer)
     {
+        if (!Mage::getStoreConfigFlag('hackathon_chatconnector/notifications/new_invoice'))
+            return $this;
+        
         $order = $observer->getEvent()->getOrder();
         $shippingObj = $order->getShippingAddress();
         $street = implode(' ', (array)$shippingObj->getStreet());
