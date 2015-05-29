@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Hackathon_ChatConnector extension
+ * Hackathon_ChatConnector extension.
  *
  * NOTICE OF LICENSE
  *
@@ -10,20 +11,19 @@
  * http://opensource.org/licenses/mit-license.php
  *
  * @category       Hackathon
- * @package        Hackathon_ChatConnector
+ *
  * @copyright      Copyright (c) 2015
  * @license        http://opensource.org/licenses/mit-license.php MIT License
  */
 
 /**
- * ChatConnector setup
+ * ChatConnector setup.
  *
  * @category    Hackathon
- * @package     Hackathon_ChatConnector
+ *
  * @author      Sander Mangel <sander@sandermangel.nl>
  */
 class Hackathon_ChatConnector_Model_Resource_Setup
     extends Mage_Core_Model_Resource_Setup
 {
-
 }
