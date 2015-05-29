@@ -1,0 +1,11 @@
+{
+    "name": "magento-hackathon/hackathon_chatconnector",
+    "license": "MIT",
+    "type": "magento-module",
+    "description": "",
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    },
+    "authors":[
+    ]
+}
