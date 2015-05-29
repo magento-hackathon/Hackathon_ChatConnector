@@ -42,13 +42,13 @@ class Hackathon_ChatConnector_Model_Events_Sales_Invoice
         $street = implode(' ', (array) $shippingObj->getStreet());
 
         $messageTemplate = "New Invoice
-        Shipping to
-        {$shippingObj->getFirstname()} {$shippingObj->getLastname()}
-        {$street}
-        {$shippingObj->getPostcode()} {$shippingObj->getCity()} {$shippingObj->getPostcode()} ({$shippingObj->getCountryId()})
+Shipping to
+{$shippingObj->getFirstname()} {$shippingObj->getLastname()}
+{$street}
+{$shippingObj->getPostcode()} {$shippingObj->getCity()} {$shippingObj->getPostcode()} ({$shippingObj->getCountryId()})
 
-        Items
-        ";
+Items
+";
 
         foreach ($order->getAllVisibleItems() as $_item) {
             $qty = (int) $_item->getQtyOrdered();
