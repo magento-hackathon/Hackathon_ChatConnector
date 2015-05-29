@@ -32,6 +32,7 @@ class Hackathon_ChatConnector_Model_Connectors_HipChat
      *
      * @param array $params
      * @return bool
+     * @see https://www.hipchat.com/docs/apiv2/method/send_room_notification
      */
     public function notify($params = array())
     {
@@ -55,7 +56,7 @@ class Hackathon_ChatConnector_Model_Connectors_HipChat
         $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
 
-        if (intval($status) === 200 || intval($status) === 204) {
+        if (intval($status) === 204) {
             return true;
         }
 
