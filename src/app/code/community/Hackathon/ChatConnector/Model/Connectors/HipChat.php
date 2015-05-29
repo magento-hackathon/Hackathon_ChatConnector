@@ -25,6 +25,8 @@
 class Hackathon_ChatConnector_Model_Connectors_HipChat
     extends Hackathon_ChatConnector_Model_Connectors_Abstract
 {
+    protected $_prefix = 'hipchat';
+
     public function getConfig()
     {
 

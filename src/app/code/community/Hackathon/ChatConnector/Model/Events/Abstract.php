@@ -36,17 +36,15 @@ class Hackathon_ChatConnector_Model_Events_Abstract extends Mage_Core_Model_Abst
         $connectors = Mage::helper('hackathon_chatconnector')->getConnectors();
 
         foreach ($connectors as $code) {
-            try {
-                $prefix = Mage::getModel('hackathon_chatconnector/connectors_'.$code)->getPrefix();
-            } catch(Exception $e) { // model not available
+            $connector = Mage::getModel('hackathon_chatconnector/connectors_'.$code);
+            if (!$connector) {
                 continue;
             }
 
             $queueItem = Mage::getModel('hackathon_chatconnector/queue')->setData(array(
                 'message_params' => $serializedParams,
-                'connector' => $prefix,
-                'status' => Hackathon_ChatConnector_Model_Queue::STATUS_PENDING
-            ))
+                'connector' => $connector->getPrefix()
+            ));
 
             try {
                 $queueItem->save();

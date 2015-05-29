@@ -46,6 +46,9 @@ class Hackathon_ChatConnector_Model_Resource_Queue extends Mage_Core_Model_Resou
         if ($object->isObjectNew()) {
             $object->setCreatedAt($this->formatDate(true));
         }
+        if ($object->isObjectNew() && empty($object->getStatus())) {
+            $object->setStatus(Hackathon_ChatConnector_Model_Queue::STATUS_PENDING);
+        }
         return parent::_beforeSave($object);
     }
 }
