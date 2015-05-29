@@ -22,7 +22,7 @@
  * @package     Hackathon_ChatConnector
  * @author      Sander Mangel <sander@sandermangel.nl>, Marcel Hauri <marcel@hauri.me>
  */
-class Hackathon_ChatConnector_Model_Connectors_Abstract
+abstract class Hackathon_ChatConnector_Model_Connectors_Abstract
     implements Hackathon_ChatConnector_Model_Connectors_Interface
 {
     /**
