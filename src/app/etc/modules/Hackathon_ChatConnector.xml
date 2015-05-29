@@ -3,7 +3,7 @@
     <modules>
         <Hackathon_ChatConnector>
             <active>true</active>
-            <codePool>local</codePool>
+            <codePool>community</codePool>
             <depends></depends>
         </Hackathon_ChatConnector>
     </modules>

@@ -39,4 +39,11 @@
             </hackathon_chatconnector_setup>
         </resources>
     </global>
+    <phpunit>
+        <suite>
+            <modules>
+                <Hackathon_ChatConnector/>
+            </modules>
+        </suite>
+    </phpunit>
 </config>
