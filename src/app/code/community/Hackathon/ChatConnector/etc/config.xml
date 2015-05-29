@@ -10,7 +10,6 @@
             <customer_register_success>
                 <observers>
                     <hackathon_chatconnector>
-                        <type>model</type>
                         <class>Hackathon_ChatConnector_Model_Observer</class>
                         <method>customerRegisterSuccess</method>
                     </hackathon_chatconnector>
