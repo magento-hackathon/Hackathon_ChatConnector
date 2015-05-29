@@ -22,7 +22,7 @@
  * @package     Hackathon_ChatConnector
  * @author      Sander Mangel <sander@sandermangel.nl>
  */
-Interface Hackathon_ChatConnector_Model_Connectors_Interface
+interface Hackathon_ChatConnector_Model_Connectors_Interface
 {
     /**
      * Send the notification for the given connector
