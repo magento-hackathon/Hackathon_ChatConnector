@@ -57,6 +57,18 @@
             </hackathon_chatconnector_setup>
         </resources>
     </global>
+    <crontab>
+        <jobs>
+            <hackathon_chatconnector_process_queue>
+                <schedule>
+                    <config_path>hackathon_chatconnector/general/cron_expr_process</config_path>
+                </schedule>
+                <run>
+                    <model>hackathon_chatconnector/cron_proccess::run</model>
+                </run>
+            </hackathon_chatconnector_process_queue>
+        </jobs>
+    </crontab>
     <phpunit>
         <suite>
             <modules>
@@ -79,6 +91,7 @@
     <default>
         <hackathon_chatconnector>
             <general>
+                <cron_expr_process>*/5 * * * *</cron_expr_process>
                 <retry_frequency>7200</retry_frequency>
             </general>
         </hackathon_chatconnector>
