@@ -16,23 +16,33 @@
                 </observers>
             </customer_register_success>
 
-            <sales_order_payment_cancel>
+            <checkout_onepage_controller_success_action>
                 <observers>
                     <hackathon_chatconnector>
                         <class>Hackathon_ChatConnector_Model_Events_Sales_Order</class>
                         <method>listener</method>
                     </hackathon_chatconnector>
                 </observers>
-            </sales_order_payment_cancel>
+            </checkout_onepage_controller_success_action>
+
+            <sales_order_invoice_register>
+                <observers>
+                    <hackathon_chatconnector_sales_order_invoice_register>
+                        <class>Hackathon_ChatConnector_Model_Events_Transactional_Invoice</class>
+                        <method>listener</method>
+                    </hackathon_chatconnector_sales_order_invoice_register>
+                </observers>
+            </sales_order_invoice_register>
+
             <!--
-                        <controller_action_postdispatch_newsletter_subscriber_confirm>
-                            <observers>
-                                <hackathon_chatconnector>
-                                    <class>Hackathon_ChatConnector_Model_Observer</class>
-                                    <method>controllerActionPostdispatchNewsletterSubscriberConfirm</method>
-                                </hackathon_chatconnector>
-                            </observers>
-                        </controller_action_postdispatch_newsletter_subscriber_confirm>
+                <controller_action_postdispatch_newsletter_subscriber_confirm>
+                    <observers>
+                        <hackathon_chatconnector>
+                            <class>Hackathon_ChatConnector_Model_Observer</class>
+                            <method>controllerActionPostdispatchNewsletterSubscriberConfirm</method>
+                        </hackathon_chatconnector>
+                    </observers>
+                </controller_action_postdispatch_newsletter_subscriber_confirm>
             -->
         </events>
         <blocks>
@@ -67,16 +77,6 @@
                 </setup>
             </hackathon_chatconnector_setup>
         </resources>
-        <events>
-            <sales_order_invoice_register>
-                <observers>
-                    <hackathon_chatconnector_sales_order_invoice_register>
-                        <class>Hackathon_ChatConnector_Model_Events_Sales_Invoice</class>
-                        <method>listener</method>
-                    </hackathon_chatconnector_sales_order_invoice_register>
-                </observers>
-            </sales_order_invoice_register>
-        </events>
     </global>
     <crontab>
         <jobs>

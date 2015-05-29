@@ -26,24 +26,30 @@
 class Hackathon_ChatConnector_Model_Events_Sales_Order
     extends Hackathon_ChatConnector_Model_Events_Abstract
 {
+
     /**
-     * Listen to order cancel payment event.
+     * Listen to order cancel payment event
      *
-     * @param Varien_Event_Observer $observer Observer
+     * @param Varien_Event_Observer $event
+     *
+     * @return mixed|void
      */
-    public function listener(Varien_Event_Observer $observer)
+    public function listener(Varien_Event_Observer $event)
     {
-        $payment = $observer->getEvent()->getPayment();
+        $itemTemplate = '';
+        $orderIds     = $event->getOrderIds();
+        $helper       = $this->getHelper();
 
-        $this->salesOrderPaymentCancel($payment);
+        $items = Mage::getModel('sales/order_item')
+            ->getCollection()
+            ->addFieldToFilter('order_id', array('in' => $orderIds))
+            ->getItems();
+
+        foreach ($items as $item) {
+            $itemTemplate .= "{$item->getName()} ({$item->getSku()}) : {$item->getPrice()}";
+        }
+
+        $this->_addQueueItem($helper->__('A new order was placed: %1$s', $itemTemplate));
     }
 
-    /**
-     * @param $payment
-     */
-    public function salesOrderPaymentCancel($payment)
-    {
-        // Start logging!
-        //Mage::log('Sales order payment canceled');
-    }
 }
