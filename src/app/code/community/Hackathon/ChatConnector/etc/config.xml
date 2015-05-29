@@ -6,6 +6,17 @@
         </Hackathon_ChatConnector>
     </modules>
     <global>
+        <events>
+            <customer_register_success>
+                <observers>
+                    <hackathon_chatconnector>
+                        <type>model</type>
+                        <class>Hackathon_ChatConnector_Model_Observer</class>
+                        <method>customerRegisterSuccess</method>
+                    </hackathon_chatconnector>
+                </observers>
+            </customer_register_success>
+        </events>
         <blocks>
             <hackathon_chatconnector>
                 <class>Hackathon_ChatConnector_Block</class>
