@@ -1,19 +1,20 @@
 <?php
 /**
  * Hackathon_ChatConnector extension
- * 
+ *
  * NOTICE OF LICENSE
- * 
+ *
  * This source file is subject to the MIT License
  * that is bundled with this package in the file LICENSE.txt.
  * It is also available through the world-wide-web at this URL:
  * http://opensource.org/licenses/mit-license.php
- * 
+ *
  * @category       Hackathon
  * @package        Hackathon_ChatConnector
  * @copyright      Copyright (c) 2015
  * @license        http://opensource.org/licenses/mit-license.php MIT License
  */
+
 /**
  * Queue resource model
  *
@@ -23,11 +24,8 @@
  */
 class Hackathon_ChatConnector_Model_Resource_Queue extends Mage_Core_Model_Resource_Db_Abstract
 {
-
     /**
-     * _construct
-     *
-     * @access public
+     * Init the main table and primary key field
      */
     public function _construct()
     {
@@ -49,6 +47,17 @@ class Hackathon_ChatConnector_Model_Resource_Queue extends Mage_Core_Model_Resou
         if ($object->isObjectNew() && empty($object->getStatus())) {
             $object->setStatus(Hackathon_ChatConnector_Model_Queue::STATUS_PENDING);
         }
+
         return parent::_beforeSave($object);
+    }
+
+    /**
+     * Update all non-processed rma entries to processed
+     */
+    public function cleanupProcessedEntries()
+    {
+        $adapter = $this->_getWriteAdapter();
+        $where = array('status = ?' => Hackathon_ChatConnector_Model_Queue::STATUS_PROCESSED);
+        $adapter->delete($this->getMainTable(), $where);
     }
 }

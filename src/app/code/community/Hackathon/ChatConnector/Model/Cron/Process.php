@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Class Hackathon_ChatConnector_Model_Cron
+ */
 class Hackathon_ChatConnector_Model_Cron
     extends Hackathon_ChatConnector_Model_Cron_Abstract
 {
