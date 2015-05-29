@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<config>
+    <sections>
+        <hackathon_chatconnector translate="label" module="hackathon_chatconnector">
+            <class>separator-top</class>
+            <label>Hackathon ChatConnector</label>
+            <tab>service</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>10</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>0</show_in_website>
+            <show_in_store>0</show_in_store>
+            <groups>
+                <general translate="label" module="hackathon_chatconnector">
+                    <label>General</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <new_order translate="label" module="hackathon_chatconnector">
+                            <label>Enable ChatConnector</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </new_order>
+                    </fields>
+                </general>
+                <slack translate="label" module="hackathon_chatconnector">
+                    <label>Slack specific settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <webhook_url translate="label" module="hackathon_chatconnector">
+                            <label>Webhook Url</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </webhook_url>
+                        <channel translate="label" module="hackathon_chatconnector">
+                            <label>Channel</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </channel>
+                        <username translate="label" module="hackathon_chatconnector">
+                            <label>Username</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </username>
+                        <icon translate="label" module="hackathon_chatconnector">
+                            <label>Icon</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>60</sort_order>
+                            <comment>For more informations see: https://my.slack.com/customize/emoji</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </icon>
+                    </fields>
+                </slack>
+                <hipchat translate="label" module="hackathon_chatconnector">
+                    <label>HipChat specific settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>30</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <access_token translate="label" module="hackathon_chatconnector">
+                            <label>API access token</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </access_token>
+                        <room_id translate="label" module="hackathon_chatconnector">
+                            <label>Room ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </room_id>
+                    </fields>
+                </hipchat>
+                <notifications translate="label" module="hackathon_chatconnector">
+                    <label>Notification Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>100</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <new_order translate="label" module="hackathon_chatconnector">
+                            <label>New Orders</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </new_order>
+                        <new_customer_account translate="label" module="hackathon_chatconnector">
+                            <label>New Customer Account</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </new_customer_account>
+                        <admin_user_login_failed translate="label" module="hackathon_chatconnector">
+                            <label>Admin User Login Failed</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </admin_user_login_failed>
+                    </fields>
+                </notifications>
+            </groups>
+        </hackathon_chatconnector>
+    </sections>
+</config>
