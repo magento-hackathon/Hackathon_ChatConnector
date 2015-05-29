@@ -46,13 +46,12 @@ class Hackathon_ChatConnector_Helper_Data extends Mage_Core_Helper_Abstract
     }
 
     /**
-     * getConfiguredConnectors
+     * Retrieve all configured connectors
      *
      * @param null $key
-     * @param null $store
      * @return array
      */
-    public function getConfiguredConnectors($key = null, $store = null)
+    public function getConfiguredConnectors($key = null)
     {
         if (!is_null($key)) {
             $key = '/' . trim($key, '/');
