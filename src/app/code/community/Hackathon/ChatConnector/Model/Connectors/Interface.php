@@ -23,6 +23,6 @@
  */
 Interface Hackathon_ChatConnector_Model_Connectors_Interface
 {
-    public function notify();
+    public function notify($params = array());
     public function getConfig();
 }
