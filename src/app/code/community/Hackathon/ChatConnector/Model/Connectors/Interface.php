@@ -27,7 +27,7 @@ interface Hackathon_ChatConnector_Model_Connectors_Interface
     /**
      * Send the notification for the given connector
      *
-     * @param array $params
+     * @param array $params Params
      * @return bool
      */
     public function notify($params = array());
@@ -35,7 +35,7 @@ interface Hackathon_ChatConnector_Model_Connectors_Interface
     /**
      * Retrieve the connector config
      *
-     * @param null $store
+     * @param null $store Store
      * @return array
      */
     public function getConfig($store = null);

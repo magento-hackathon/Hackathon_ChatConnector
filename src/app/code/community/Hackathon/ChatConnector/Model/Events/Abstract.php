@@ -33,8 +33,8 @@ abstract class Hackathon_ChatConnector_Model_Events_Abstract
     /**
      * Add the item to the queue
      *
-     * @param string $message
-     * @param array  $params
+     * @param string $message Message
+     * @param array  $params  Additional Params
      */
     protected function _addQueueItem($message, $params = array())
     {
@@ -67,6 +67,8 @@ abstract class Hackathon_ChatConnector_Model_Events_Abstract
     }
 
     /**
+     * Retrieve the helper
+     *
      * @return Hackathon_ChatConnector_Helper_Data
      */
     public function getHelper()
@@ -79,7 +81,9 @@ abstract class Hackathon_ChatConnector_Model_Events_Abstract
     }
 
     /**
-     * @param Hackathon_ChatConnector_Helper_Data $helper
+     * Set the helper
+     *
+     * @param Hackathon_ChatConnector_Helper_Data $helper Helper
      */
     public function setHelper($helper)
     {

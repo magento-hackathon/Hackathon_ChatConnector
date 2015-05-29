@@ -30,7 +30,7 @@ class Hackathon_ChatConnector_Model_Connectors_HipChat
     /**
      * Send the notification for the given connector
      *
-     * @param array $params
+     * @param array $params Params
      * @return bool
      * @see https://www.hipchat.com/docs/apiv2/method/send_room_notification
      */
@@ -66,7 +66,7 @@ class Hackathon_ChatConnector_Model_Connectors_HipChat
     /**
      * Retrieve the connector config
      *
-     * @param null $store
+     * @param null $store Store
      * @return array
      */
     public function getConfig($store = null)

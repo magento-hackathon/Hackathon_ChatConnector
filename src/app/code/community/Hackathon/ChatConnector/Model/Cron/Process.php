@@ -26,7 +26,7 @@ class Hackathon_ChatConnector_Model_Cron_Process
     /**
      * Process the queue for the given connector
      *
-     * @param Hackathon_ChatConnector_Model_Connectors_Interface $connector
+     * @param Hackathon_ChatConnector_Model_Connectors_Interface $connector Connector
      */
     protected function _processQueue(Hackathon_ChatConnector_Model_Connectors_Interface $connector)
     {

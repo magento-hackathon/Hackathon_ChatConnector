@@ -30,7 +30,7 @@ class Hackathon_ChatConnector_Model_Connectors_Slack
     /**
      * Send the notification for the given connector
      *
-     * @param array $params
+     * @param array $params Params
      * @return bool
      */
     public function notify($params = array())
@@ -44,9 +44,9 @@ class Hackathon_ChatConnector_Model_Connectors_Slack
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, false);
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, array('payload' => json_encode(array(
-            'text' => $params['message'],
-            'channel' => $config['channel'],
-            'username' => $config['username'],
+            'text'       => $params['message'],
+            'channel'    => $config['channel'],
+            'username'   => $config['username'],
             'icon_emoji' => $config['icon'],
         ))));
         curl_exec($ch);
@@ -64,7 +64,7 @@ class Hackathon_ChatConnector_Model_Connectors_Slack
     /**
      * Retrieve the connector config
      *
-     * @param null $store
+     * @param null $store Store
      * @return array
      */
     public function getConfig($store = null)

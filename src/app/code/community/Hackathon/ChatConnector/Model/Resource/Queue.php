@@ -44,7 +44,9 @@ class Hackathon_ChatConnector_Model_Resource_Queue extends Mage_Core_Model_Resou
         if ($object->isObjectNew()) {
             $object->setCreatedAt($this->formatDate(true));
         }
-        if ($object->isObjectNew() && empty($object->getStatus())) {
+
+        $status = $object->getStatus();
+        if ($object->isObjectNew() && empty($status)) {
             $object->setStatus(Hackathon_ChatConnector_Model_Queue::STATUS_PENDING);
         }
 
@@ -52,8 +54,10 @@ class Hackathon_ChatConnector_Model_Resource_Queue extends Mage_Core_Model_Resou
     }
 
     /**
-     * @param array $entityIds
-     * @param int   $status
+     * Update the given queue items with the given status
+     *
+     * @param array $entityIds Entity IDs
+     * @param int   $status    Status
      */
     public function updateStatus($entityIds, $status)
     {

@@ -25,6 +25,8 @@
 class Hackathon_ChatConnector_Model_System_Config_Source_Dropdown_Connectors
 {
     /**
+     * Retrieve the configured connectors
+     *
      * @return array
      */
     public function toOptionArray()
@@ -37,6 +39,7 @@ class Hackathon_ChatConnector_Model_System_Config_Source_Dropdown_Connectors
                 'label' => $params['name'],
             );
         }
+
         return $values;
     }
 }
