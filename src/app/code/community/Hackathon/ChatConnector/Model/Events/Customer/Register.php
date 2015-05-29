@@ -27,14 +27,6 @@
     {
 
         /**
-         * @param $customer
-         */
-        public function customerRegisterSuccess($customer)
-        {
-            $this->_addQueueItem('A new customer has..');
-        }
-
-        /**
          * Listen to customer register success event
          *
          * @param Varien_Event_Observer $event
@@ -42,10 +34,16 @@
          */
         public function listener(Varien_Event_Observer $event)
         {
-            $customer          = $event->getCustomer();
-            //$accountController = $event->getAccountController();
+            $customer = $event->getCustomer();
+            $helper   = $this->getHelper();
 
-            $this->customerRegisterSuccess($customer);
+            $messageTemplate = $helper->__('%1$s %2$s has created an account in store view: %3$s',
+                $customer->getFirstname(),
+                $customer->getLastname(),
+                $customer->getCreatedIn()
+            );
+
+            $this->_addQueueItem($messageTemplate);
         }
 
     }
