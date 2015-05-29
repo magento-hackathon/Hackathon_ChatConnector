@@ -27,11 +27,14 @@ class Hackathon_ChatConnector_Model_Events_Abstract extends Mage_Core_Model_Abst
      * processQueue
      *
      * @access protected
+     * @param string $params
      * @param array $params
      * @return Void
      */
-    protected function _addQueueItem($params)
+    protected function _addQueueItem($message, $params = array())
     {
+        $params = array_merge(array('message' => $message), $params);
+
         $serializedParams = json_encode((array)$params);
         $connectors = Mage::helper('hackathon_chatconnector')->getActiveConnectors();
 
