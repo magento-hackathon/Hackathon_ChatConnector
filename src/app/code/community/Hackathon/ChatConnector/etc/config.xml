@@ -85,7 +85,7 @@
                     <config_path>hackathon_chatconnector/general/cron_expr_process</config_path>
                 </schedule>
                 <run>
-                    <model>hackathon_chatconnector/cron_proccess::run</model>
+                    <model>hackathon_chatconnector/cron_process::run</model>
                 </run>
             </hackathon_chatconnector_queue_process>
             <hackathon_chatconnector_queue_cleanup>
